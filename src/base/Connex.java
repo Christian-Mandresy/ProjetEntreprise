@@ -5,6 +5,7 @@ import java.sql.SQLException ;
 public class Connex
 {
     Connection connexion;
+
     public Connex()throws ClassNotFoundException, SQLException
     {
         Class.forName ("com.mysql.jdbc.Driver");
@@ -18,6 +19,10 @@ public class Connex
 
     public void setConnexion(Connection connexion) {
         this.connexion = connexion;
+    }
+
+    public void close() throws SQLException {
+        this.connexion.close();
     }
     
 }

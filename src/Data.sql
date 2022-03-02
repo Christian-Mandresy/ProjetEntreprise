@@ -1,3 +1,4 @@
+use entreprise;
 create table Departement(
                             Id integer primary key not null auto_increment,
                             Nom VARCHAR(50)
@@ -35,9 +36,12 @@ create TABLE Employe(
                         Prenom VARCHAR(50),
                         IdFonction integer,
                         IdDepartement integer,
+                        Username VARCHAR(50),
+                        Password VARCHAR(120),
                         FOREIGN KEY (IdFonction) REFERENCES Fonction(Id),
                         FOREIGN KEY (IdDepartement) REFERENCES Departement(Id)
 );
+
 
 
 INSERT INTO Employe (Nom,Prenom,IdFonction,IdDepartement)
@@ -100,6 +104,10 @@ VALUES
 ("Bert","Brielle Anderson",3,5),
 ("Samson","Burke Stone",3,6),
 ("Duncan","Mira Jensen",6,4);
+
+update Employe set Username=Nom where Id !=0;
+
+update Employe set Password=concat(Prenom,'1234') where Id !=0;
 
 create table Document(
                          IdDocument integer primary key not null auto_increment,

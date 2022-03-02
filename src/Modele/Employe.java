@@ -6,18 +6,27 @@ public class Employe extends BdTable{
     int Id;
     String Nom;
     String Prenom;
-    int IdFonction;
-    int IdDepartement;
+    int Idfonction;
+    int Iddepartement;
+    String Username;
+    String Password;
 
-    public Employe(int id, String nom, String prenom, int idFonction, int idDepartement) {
+    public Employe() {
+    }
+
+    public Employe(int id, String nom, String prenom, int idfonction, int iddepartement, String username, String password) {
         Id = id;
         Nom = nom;
         Prenom = prenom;
-        IdFonction = idFonction;
-        IdDepartement = idDepartement;
+        Idfonction = idfonction;
+        Iddepartement = iddepartement;
+        Username = username;
+        Password = password;
     }
 
-    public Employe() {
+    public Employe(String username, String password) {
+        Username = username;
+        Password = password;
     }
 
     public int getId() {
@@ -45,18 +54,34 @@ public class Employe extends BdTable{
     }
 
     public int getIdfonction() {
-        return IdFonction;
+        return Idfonction;
     }
 
-    public void setIdfonction(int idFonction) {
-        IdFonction = idFonction;
+    public void setIdfonction(int idfonction) {
+        Idfonction = idfonction;
     }
 
     public int getIddepartement() {
-        return IdDepartement;
+        return Iddepartement;
     }
 
-    public void setIddepartement(int idDepartement) {
-        IdDepartement = idDepartement;
+    public void setIddepartement(int iddepartement) {
+        Iddepartement = iddepartement;
+    }
+
+    public String getUsername() {
+        return Username;
+    }
+
+    public void setUsername(String username) {
+        Username = username;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
     }
 }

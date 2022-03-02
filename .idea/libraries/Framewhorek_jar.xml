@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Framewhorek_jar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../Framewhorek_jar" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../Framewhorek_jar" recursive="false" />
+  </library>
+</component>
