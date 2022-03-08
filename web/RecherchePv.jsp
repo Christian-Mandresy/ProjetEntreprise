@@ -13,8 +13,8 @@
 </head>
 <body>
 <form action="http://localhost:8080/Entreprise_war_exploded/RecherchePv.do">
-    <input type="text" name="Id">
-    <input type="text" name="IdEmploye">
+
+    <label for="Employer">Selectionner un employer</label>
     <select name="IdEmploye" id="">
         <option value="0">Ajouter filtre par employe</option>
         <% BdTable[] listEmpl= (BdTable[]) request.getAttribute("ListEmploye"); %>
@@ -23,9 +23,11 @@
         <option value="<%= emp.getId()  %>"> <%= emp.getNom() %>  </option>
         <% }%>
     </select>
+    <label for="Description">Description</label>
     <input type="text" name="Description">
-    <input type="date" name="DatePublication">
-    <input type="text" name="IdDocument">
+    <label for="DatePublication">Date</label>
+    <input type="date" name="DatePublication" >
+    <label for="Document">Document</label>
     <select name="IdDocument" id="">
         <option value="0">filtrer par document</option>
         <% BdTable[] listDoc= (BdTable[]) request.getAttribute("ListDocument"); %>

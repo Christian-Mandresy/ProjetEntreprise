@@ -7,6 +7,8 @@ import Modele.Pv;
 import modeleview.ModelView;
 import base.BdTable;
 import base.Connex;
+
+import javax.servlet.http.HttpSession;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -36,6 +38,10 @@ public class ServicePv {
             Proc.insertValues(co.getConnexion());
         } catch (Exception e) {
             throw e;
+        }
+        finally
+        {
+            co.close();
         }
         return mod;
     }
@@ -162,6 +168,33 @@ public class ServicePv {
         mod.setHash(hash);
         mod.setVue(vue);
         return mod;
+    }
+
+    @FonctionAnnot(url = "index")
+    public ModelView PvParEmp(HttpSession session) throws Exception {
+        if(session.getAttribute("Employe")!=null)
+        {
+            Employe employe=(Employe)session.getAttribute("Employe");
+            int IdEmploye=employe.getId();
+            Pv piv=new Pv();
+            Pv pv=new Pv();
+            pv.setIdemploye(employe.getId());
+            Connex connex=new Connex();
+            BdTable[] listpv=piv.Find(connex.getConnexion(),pv);
+            ModelView retour=new ModelView();
+            HashMap hashMap=new HashMap();
+            hashMap.put("listpv",listpv);
+            String vue="index.jsp";
+            retour.setVue(vue);
+            retour.setHash(hashMap);
+            return retour;
+        }
+        else
+        {
+            ModelView retour=new ModelView();
+            retour.setVue("login.jsp");
+            return retour;
+        }
     }
 
 

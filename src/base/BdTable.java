@@ -322,7 +322,7 @@ public class BdTable implements Cloneable
                 {
                     if(i != FNonNull.length-1)
                     {
-                        subRequ2=subRequ2+"'"+nomAttribut[FNonNull[i]]+"'"+"= "+(String)value+" and ";
+                        subRequ2=subRequ2+nomAttribut[FNonNull[i]]+"= "+"'"+(String)value+"'"+" and ";
                     }
                     else
                     {
